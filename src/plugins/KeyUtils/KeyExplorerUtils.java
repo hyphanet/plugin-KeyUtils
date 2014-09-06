@@ -157,7 +157,7 @@ public class KeyExplorerUtils {
 			}
 
 			@Override
-			public void onTransition(ClientGetState oldState, ClientGetState newState) {
+			public void onTransition(ClientGetState oldState, ClientGetState newState, ClientContext context) {
 			}
 
 			@Override

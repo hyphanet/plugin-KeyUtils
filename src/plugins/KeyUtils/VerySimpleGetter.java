@@ -37,11 +37,6 @@ public class VerySimpleGetter extends ClientRequester {
 	    final RequestClient client;
 
         @Override
-        public void onMajorProgress() {
-            // Ignore.
-        }
-
-        @Override
         public void onResume(ClientContext context) throws ResumeFailedException {
             throw new UnsupportedOperationException();
         }
@@ -82,12 +77,13 @@ public class VerySimpleGetter extends ClientRequester {
 	}
 
 	@Override
-	public void notifyClients(ClientContext context) {
+	protected void innerNotifyClients(ClientContext context) {
 		// progress, ignore Logger.error(this, "TODO?", new Error("TODO?"));
 	}
 
 	@Override
-	public void onTransition(ClientGetState oldState, ClientGetState newState) {
+	public void onTransition(ClientGetState oldState, ClientGetState newState,
+			ClientContext context) {
 		Logger.error(this, "TODO?", new Error("TODO?"));
 	}
 
