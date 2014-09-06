@@ -90,10 +90,10 @@ public class VerySimpleGetter extends ClientRequester {
 		if (logDEBUG) Logger.debug(this, "Request goes out to network now.");
 	}
 
-    @Override
-    protected ClientBaseCallback getCallback() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+	@Override
+	protected ClientBaseCallback getCallback() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
