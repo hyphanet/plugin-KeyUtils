@@ -11,8 +11,6 @@ import java.util.List;
 
 import plugins.KeyUtils.KeyUtilsPlugin;
 
-import com.db4o.ObjectContainer;
-
 import freenet.client.FetchContext;
 import freenet.client.FetchException;
 import freenet.client.FetchException.FetchExceptionMode;
