@@ -354,7 +354,7 @@ public class KeyExplorerToadlet extends WebInterfaceToadlet {
 							byte [] defaultCryptoKey = null;
 							byte [] uriCryptoKey = uri.getCryptoKey();
 							try {
-								defaultCryptoKey = md.getCryptoKey(md.getHashes());
+								defaultCryptoKey = Metadata.getCryptoKey(md.getHashes());
 							} catch(IllegalArgumentException ex) {
 							    // Ignore
 							}
