@@ -31,8 +31,6 @@ import freenet.clients.http.ToadletContext;
 import freenet.clients.http.ToadletContextClosedException;
 import freenet.crypt.HashResult;
 import freenet.keys.FreenetURI;
-import freenet.keys.BaseClientKey;
-import freenet.keys.ClientCHK;
 import freenet.l10n.PluginL10n;
 import freenet.support.HexUtil;
 import freenet.support.HTMLNode;
