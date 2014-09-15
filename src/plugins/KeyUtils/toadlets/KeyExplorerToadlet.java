@@ -19,6 +19,7 @@ import plugins.KeyUtils.KeyExplorerUtils;
 import plugins.KeyUtils.KeyUtilsPlugin;
 import freenet.client.FetchException;
 import freenet.client.FetchResult;
+import freenet.client.InsertContext.CompatibilityMode;
 import freenet.client.Metadata;
 import freenet.client.MetadataParseException;
 import freenet.client.ArchiveManager.ARCHIVE_TYPE;
@@ -312,7 +313,7 @@ public class KeyExplorerToadlet extends WebInterfaceToadlet {
 
 					metaBox.addChild("br");
 
-					if (md.topCompatibilityMode != 0) {
+					if (md.topCompatibilityMode != CompatibilityMode.COMPAT_UNKNOWN) {
 						metaBox.addChild("#", "Compatibility mode: " + md.getTopCompatibilityMode().toString());
 						metaBox.addChild("br");
 					}
