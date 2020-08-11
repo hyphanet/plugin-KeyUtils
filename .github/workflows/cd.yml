@@ -1,0 +1,50 @@
+name: CD
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: olegtarasov/get-tag@v2
+      id: tagName
+
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        ref: ${{github.ref}}
+        fetch-depth: 0
+
+    - name: Build/Publish Release
+      uses: eskatos/gradle-command-action@v1
+      with:
+        arguments: publish
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: plugin-KeyUtils-${{ steps.tagName.outputs.tag }}
+        body: ${{ github.event.commits[0].message }}
+        draft: false
+        prerelease: false
+
+    - name: Upload Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: build/libs/freenet-KeyUtils.jar
+        asset_name: KeyUtils.jar
+        asset_content_type: application/java-archive
