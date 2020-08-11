@@ -10,7 +10,6 @@ import freenet.client.async.ClientRequester;
 import freenet.keys.FreenetURI;
 import freenet.node.RequestClient;
 import freenet.support.Logger;
-import freenet.support.io.ResumeFailedException;
 
 /**
  * @author saces
@@ -25,26 +24,6 @@ public class VerySimpleGetter extends ClientRequester {
 	}
 
 	private FreenetURI uri;
-	
-	private static class FakeCallback implements ClientBaseCallback {
-	    
-	    FakeCallback(RequestClient client) {
-	        this.client = client;
-	    }
-	    
-	    final RequestClient client;
-
-        @Override
-        public void onResume(ClientContext context) throws ResumeFailedException {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public RequestClient getRequestClient() {
-            return client;
-        }
-	    
-	}
 
 	/**
 	 * @param priorityclass 
@@ -54,7 +33,7 @@ public class VerySimpleGetter extends ClientRequester {
 	 * 
 	 */
 	public VerySimpleGetter(short priorityclass, FreenetURI uri2, RequestClient client2) {
-		super(priorityclass, new FakeCallback(client2));
+		super(priorityclass, client2);
 		uri = uri2;
 	}
 	
