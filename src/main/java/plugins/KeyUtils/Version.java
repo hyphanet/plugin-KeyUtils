@@ -16,9 +16,9 @@ public class Version {
 	 * a major change, a significant bugfix etc. These numbers are used in auto-update 
 	 * etc, at a minimum any build inserted into auto-update should have a unique 
 	 * version. */
-	public static final long version = 5026;
+	public static final long version = 5027;
 
-	public static final String longVersionString = "0.5.3 " + gitRevision;
+	public static final String longVersionString = "0.5.4 " + gitRevision;
 
 	/**
 	 * just prints the version number to standard out. intended to be used
