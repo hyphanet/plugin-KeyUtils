@@ -206,7 +206,7 @@ public class KeyExplorerUtils {
 					}
 
 					output = finalResult.getOutputStream();
-					worker = new ClientGetWorkerThread(dataInput, output, null, null, null, false, ctx.charset, ctx.prefetchHook, ctx.tagReplacer, null);
+					worker = new ClientGetWorkerThread(dataInput, output, null, null, null, null, false, ctx.charset, ctx.prefetchHook, ctx.tagReplacer, null);
 					worker.start();
 					try {
 						streamGenerator.writeTo(dataOutput, context);
