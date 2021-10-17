@@ -254,7 +254,7 @@ public class ExtraToadlet extends WebInterfaceToadlet {
 			} catch (NumberFormatException nfe) {
 				errors.add("Field 'type' must be a number 1 - 255)");
 			}
-			extra[1] = (byte) (s_private.length()>0 ? 2 : 0);
+			extra[1] = (byte) (s_private.length()>0 ? 1 : 0);
 			try {
 				extra[2] = Byte.parseByte(s_crypto);
 			} catch (NumberFormatException nfe) {
